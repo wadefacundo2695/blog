@@ -1,0 +1,51 @@
+[
+  {
+    "title": "Prueba Tercer Post",
+    "autor": "wadefacundo",
+    "date": "28-02-2022",
+    "preview": "Tercer post preview",
+    "slug": "hello-world"
+  },
+  {
+    "title": "Prueba Segfundo Post",
+    "autor": "wadefacundo",
+    "date": "02-06-2022",
+    "preview": "Segundo post preview",
+    "slug": "hello-world-2"
+  },
+  {
+    "title": "Prueba Primer Post",
+    "autor": "wadefacundo",
+    "date": "01-05-2022",
+    "preview": "Primer post preview",
+    "slug": "hello-world-1"
+  },
+  {
+    "title": "Prueba Segfundo Post",
+    "autor": "wadefacundo",
+    "date": "02-06-2022",
+    "preview": "Segundo post preview",
+    "slug": "hello-world-2"
+  },
+  {
+    "title": "Prueba Segfundo Post",
+    "autor": "wadefacundo",
+    "date": "02-06-2022",
+    "preview": "Segundo post preview",
+    "slug": "hello-world-2"
+  },
+  {
+    "title": "Prueba Segfundo Post",
+    "autor": "wadefacundo",
+    "date": "02-06-2022",
+    "preview": "Segundo post preview",
+    "slug": "hello-world-2"
+  },
+  {
+    "title": "Prueba Segfundo Post",
+    "autor": "wadefacundo",
+    "date": "02-06-2022",
+    "preview": "Segundo post preview",
+    "slug": "hello-world-2"
+  }
+]

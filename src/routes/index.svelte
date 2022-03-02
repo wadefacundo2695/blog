@@ -1,59 +1,80 @@
 <script context="module" lang="ts">
-	export const prerender = true;
+    import {base} from "$app/paths";
+    import Paginator from "$lib/paginator/Paginator.svelte";
+
+    export const prerender = true;
+
+    export let currentPage = 0;
+
+    export async function load({params, fetch}) {
+        const posts = await fetch(`${base}/posts/get-posts`)
+            .then((r) => r.json());
+        return {
+            props: {posts}
+        };
+    }
 </script>
 
 <script lang="ts">
-	import Counter from '$lib/Counter.svelte';
+    export let posts;
 </script>
 
 <svelte:head>
-	<title>Home</title>
+    <title>Inicio</title>
 </svelte:head>
 
 <section>
-	<h1>
-		<div class="welcome">
-			<picture>
-				<source srcset="svelte-welcome.webp" type="image/webp" />
-				<img src="svelte-welcome.png" alt="Welcome" />
-			</picture>
-		</div>
+    <div class="title">
+        <h1>Facundo Wade</h1>
+        <p>{posts.length} posts</p>
+    </div>
 
-		to your new<br />SvelteKit app
-	</h1>
+    {#each posts as post}
+        <h2>
+            <a sveltekit:prefetch href={`${base}/posts/${post.slug}`}>{post.title}</a>
+        </h2>
+        <p>{post.preview}</p>
+    {/each}
 
-	<h2>
-		try editing <strong>src/routes/index.svelte</strong>
-	</h2>
-
-	<Counter />
+    <Paginator currentPage={currentPage}/>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-	}
+    .title {
+        margin: 0 0 1em 0;
+    }
 
-	h1 {
-		width: 100%;
-	}
+    section {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        width: 100%;
+        max-width: var(--column-width);
+    }
 
-	.welcome {
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
+    h1 {
+        display: flex;
+        margin: 0.5em 0 0;
+        color: var(--heading-color);
+    }
 
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+    h2 {
+        margin: 1em 0 0 0;
+    }
+
+    h2 a {
+        font-size: x-large;
+        color: var(--heading-color);
+        transition: color 0.1s linear;
+    }
+
+    h2 a:focus, a:hover {
+        text-decoration: none;
+        color: var(--accent-color);
+    }
+
+    p {
+        color: var(--primary-color);
+        margin: 0;
+    }
 </style>
