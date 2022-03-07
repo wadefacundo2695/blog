@@ -25,7 +25,7 @@
 
 <section>
     <div class="title">
-        <h1>Facundo Wade</h1>
+        <h1>tuzi</h1>
         <p>{posts.length} posts</p>
     </div>
 
